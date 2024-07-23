@@ -1,0 +1,51 @@
+@use "../tokens";
+
+.panel {
+    background-color: tokens.$background-color-subtle;
+    border-radius: tokens.$rounded-corners;
+    padding: tokens.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-lg;
+    text-align: left;
+
+    &:has(.tag) {
+        padding: tokens.$spacing-xl;
+    }
+}
+
+.panel__section {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-2xs;
+
+    &:has(.panel__meta) {
+        gap: tokens.$spacing-xs;
+    }
+
+    &:has(.tag) {
+        gap: tokens.$spacing-sm;
+    }
+}
+
+.panel__title {
+    font-size: tokens.$heading-font-size-sm;
+}
+
+.panel__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: tokens.$spacing-xs;
+    font-family: tokens.$heading-font;
+    font-weight: tokens.$font-weight-semibold;
+}
+
+.panel__meta-separator {
+    margin: 0 tokens.$spacing-2xs;
+    display: inline-block;
+}
+
+.panel p {
+    line-height: 2;
+}

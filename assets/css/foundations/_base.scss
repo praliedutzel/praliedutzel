@@ -1,0 +1,58 @@
+@use "../tokens";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    background: tokens.$background-color-light;
+    color: tokens.$text-color-dark;
+    font-family: tokens.$body-font;
+    font-size: tokens.$body-font-size-md;
+    font-weight: tokens.$font-weight-regular;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    container: main / inline-size;
+
+    &:focus-within {
+        outline: 0;
+    }
+}
+
+ul, ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+::selection {
+    background-color: tokens.$background-color-action;
+    color: tokens.$text-color-light;
+}
+
+// Add extra margin for anchored elements
+:target {
+    scroll-margin-block: 5ex;
+}

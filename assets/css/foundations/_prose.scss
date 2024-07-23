@@ -1,0 +1,28 @@
+@use "../tokens";
+
+.prose {
+    > * + * {
+        margin-top: tokens.$spacing-sm;
+    }
+
+    h3 {
+        margin-top: tokens.$spacing-lg;
+    }
+
+    p, li {
+        line-height: 2;
+    }
+
+    ul {
+        list-style: square;
+        margin-left: tokens.$spacing-md;
+    }
+
+    ul li + li {
+        margin-top: tokens.$spacing-2xs;
+    }
+
+    > .callout {
+        margin-top: tokens.$spacing-lg;
+    }
+}

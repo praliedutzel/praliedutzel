@@ -1,0 +1,31 @@
+@use "../tokens";
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: tokens.$spacing-xs;
+
+    &:has(.tag--size-lg) {
+        gap: tokens.$spacing-sm;
+    }
+}
+
+.tag {
+    border: 2px solid tokens.$border-color-accent;
+    border-radius: tokens.$fully-rounded-corners;
+    padding: tokens.$spacing-xs tokens.$spacing-sm;
+    color: tokens.$text-color-accent;
+    font-size: tokens.$body-font-size-md;
+    font-weight: tokens.$font-weight-semibold;
+    line-height: 1;
+}
+
+.tag--size-sm {
+    font-size: tokens.$body-font-size-sm;
+}
+
+.tag--size-lg {
+    border-width: 4px;
+    padding: tokens.$spacing-sm tokens.$spacing-md;
+    font-size: tokens.$body-font-size-lg;
+}

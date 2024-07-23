@@ -1,0 +1,26 @@
+@use "../tokens";
+
+h1, h2, h3 {
+    overflow-wrap: break-word;
+    font-family: tokens.$heading-font;
+    font-weight: tokens.$font-weight-semibold;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: tokens.$heading-font-size-xl;
+    font-weight: tokens.$font-weight-bold;
+}
+
+h2 {
+    font-size: tokens.$heading-font-size-md;
+}
+
+h3 {
+    font-size: tokens.$heading-font-size-sm;
+}
+
+p {
+    overflow-wrap: break-word;
+}

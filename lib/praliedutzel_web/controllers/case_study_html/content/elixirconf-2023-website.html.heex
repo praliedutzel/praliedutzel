@@ -1,0 +1,81 @@
+<p>
+  ElixirConf is the premier conference for Elixir developers and enthusiasts, and has been held annually in the US since 2014. Set to take place in Orlando, Florida, they were looking for a fresh design for the 2023 event website to share event details and registration information.
+</p>
+
+<p>Some of the highlights of this project included:</p>
+
+<ul>
+  <li>Incorporating the event's location into the design</li>
+
+  <li>Building out components and templates in Elixir and Phoenix</li>
+
+  <li>Integrating Tailwind for flexibility and easier hand-off</li>
+
+  <li>
+    Rapid design iteration in a local development environment for new feature additions as event details were confirmed
+  </li>
+
+  <li>Designing a responsive, multi-track schedule</li>
+
+  <li>Leveraging Phoenix LiveView's JS commands to handle JavaScript interactions</li>
+</ul>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/elixirconf-2023-landing-page-mock-up.png"}
+    alt="Design mock-up for the landing page featuring a large graphic with a speaker from a previous event, a few headlines about ElixirConf, placeholder cards for upcoming dates, and a newsletter sign-up."
+  />
+  <figcaption>Original mock-up for the landing page design</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Incorporating Orlando</.decorative_heading>
+
+<p>
+  Since the event website changes every year, this was an opportunity to incorporate some fun design elements inspired by the venue's location in Orlando, Florida. The color palette is intended to evoke relaxing vacation vibes, without straying too far from ElixirConf's own colors. I added staggered edges to emulate how the city and wetlands cut into each other, as well as wave details throughout as a tie-in to the water parks in the area.
+</p>
+
+<p>
+  Because we didn't know the full scope of what was needed for the site through all phases leading up to the event, the initial designs focused on defining structure and design elements. This was a bit of a different case from normal client work I'd done in the past where I'd design everything early on. Instead, we aimed to get an initial design launched quickly to share the event date and venue, and would continue adding details as they were confirmed.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/elixirconf-2023-design-elements.png"}
+    alt="Example of design elements including a wave underline below an orange headline, a pill-shaped button, and an image with staggered edges on the corners and a cutaway effect revealing a magenta outline below the image."
+  />
+  <figcaption>Some of the design elements incorporated into the site</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Development</.decorative_heading>
+
+<p>
+  When it came time to implement the initial design, I worked closely with the conference coordinator, Jim Freeze, who stood up an initial skeleton for the site with Elixir and Phoenix. I then built out templates and function components for all of the design elements, and Jim handled the data integration and back-end services. We continued to iterate on the design as new features were added.
+</p>
+
+<p>
+  One of the critical pieces of this build was that it needed to incorporate Tailwind, a utility-based CSS framework, so that it could be easily updated without the help of a designer or front-end developer. I extended Tailwind's theme config to include the colors from the design and leveraged the framework's utility classes across all elements. Since this was a relatively simple site, the only custom CSS that was needed was for design elements like the wave effects and image masking for the homepage hero graphic. Even adjusting elements to change layouts for different display sizes was handled with Tailwind.
+</p>
+
+<.decorative_heading tag="h3" style="simpler">On-the-fly Design</.decorative_heading>
+
+<p>
+  While the initial design was done in Figma, additional features and iterations were done entirely in Elixir and Tailwind. Thanks to Phoenix's live reload feature and Tailwind's robust set of utility classes, it made it easy to quickly iterate through design options locally. This was the ideal workflow since we needed to add new features like event registration and the schedule quickly.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/elixirconf-2023-schedule-design.png"}
+    alt="Partial view of the event schedule, which features a row for each timeframe and four columns: one for listing the timeframes and the other three for each of the three tracks. Each talk highlights the title, speaker, topic, level, and which room it is in. Some rows span all three tracks for special events such as the keynote and welcome reception."
+  />
+  <figcaption>The design for the schedule spanning three tracks</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Outcome</.decorative_heading>
+
+<p>
+  The ElixirConf website was continually updated leading up to the event with keynote and speaker announcements, a list of sponsors, workshop details, a full schedule with talk descriptions and speaker bios, and a third-party registration integration.
+</p>
+
+<p>
+  The conference itself was a great success and I was lucky enough to be able to attend virtually. Afterwards, Jim was able to update the site easily with the components provided to add links to the recordings and remove features that were no longer needed.
+</p>

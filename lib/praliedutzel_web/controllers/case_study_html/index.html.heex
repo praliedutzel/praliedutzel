@@ -1,0 +1,49 @@
+<.hero>
+  <:title><%= gettext("Case Studies") %></:title>
+  <:description>
+    <%= raw(
+      gettext(
+        "Interested in seeing more of my work? <a href='mailto:%{email}' class='link'>Email me</a> to request access.",
+        email: contact_email()
+      )
+    ) %>
+  </:description>
+</.hero>
+
+<div class="container container--size-sm container--gutters center-text">
+  <ul aria-label={gettext("case studies")}>
+    <li :for={case_study <- @case_studies} class="card-wrapper">
+      <.card slug={case_study.slug} tags={case_study.tags}>
+        <:title><%= case_study.title %></:title>
+        <:description><%= case_study.teaser_text %></:description>
+      </.card>
+    </li>
+  </ul>
+
+  <p
+    :if={portfolio_figma_link() && portfolio_github_link()}
+    class="margin-top-xl font-size-scale-2"
+  >
+    <%= raw(
+      gettext(
+        "Check out the <a href='%{figma_link}' class='link' target='_blank' rel='noopener'>Figma file</a>
+        and <a href='%{github_link}' class='link' target='_blank' rel='noopener'>GitHub repository</a>
+        for this site, which was designed and built by me.",
+        figma_link: portfolio_figma_link(),
+        github_link: portfolio_github_link()
+      )
+    ) %>
+  </p>
+
+  <div class="link-group margin-top-xl">
+    <.link href={resume_link()} class="link" target="_blank">
+      <%= gettext("Download my resume") %>
+    </.link>
+
+    <span role="presentation">//</span>
+
+    <.link href={"mailto:#{contact_email()}"} class="link">
+      <%= gettext("Email me") %>
+    </.link>
+  </div>
+</div>

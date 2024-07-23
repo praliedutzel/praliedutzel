@@ -1,0 +1,35 @@
+@use "../tokens";
+
+$directions: "top", "right", "bottom", "left";
+
+.margin-auto {
+    margin: auto;
+}
+
+@each $size, $value in tokens.$spacing {
+    .spacing-#{$size} {
+        > * + * {
+            margin-top: $value;
+        }
+    }
+
+    .margin-#{$size} {
+        margin: $value;
+    }
+
+    @each $direction in $directions {
+        .margin-#{$direction}-#{$size} {
+            margin-#{$direction}: $value;
+        }
+    }
+
+    .padding-#{$size} {
+        padding: $value;
+    }
+
+    @each $direction in $directions {
+        .padding-#{$direction}-#{$size} {
+            padding-#{$direction}: $value;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@use "sass:map";
+@use "../functions" as *;
+
+$font-sizes: (
+    "scale-0": fluid-unit(14px, 16px),
+    "scale-1": fluid-unit(16px, 18px),
+    "scale-2": fluid-unit(18px, 24px),
+    "scale-3": fluid-unit(20px, 32px),
+    "scale-4": fluid-unit(24px, 40px),
+    "scale-5": fluid-unit(28px, 64px),
+    "scale-6": fluid-unit(40px, 80px)
+);
+
+// Heading font and font sizes
+$heading-font: "Montserrat", "Open Sans", sans-serif;
+$heading-font-size-sm: map.get($font-sizes, "scale-2");
+$heading-font-size-md: map.get($font-sizes, "scale-4");
+$heading-font-size-lg: map.get($font-sizes, "scale-5");
+$heading-font-size-xl: map.get($font-sizes, "scale-6");
+
+// Body font and font sizes
+$body-font: "Open Sans", sans-serif;
+$body-font-size-sm: map.get($font-sizes, "scale-0");
+$body-font-size-md: map.get($font-sizes, "scale-1");
+$body-font-size-lg: map.get($font-sizes, "scale-2");
+$body-font-size-xl: map.get($font-sizes, "scale-3");
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;

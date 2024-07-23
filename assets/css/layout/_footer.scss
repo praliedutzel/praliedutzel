@@ -1,0 +1,93 @@
+@use "../functions" as *;
+@use "../tokens";
+
+$_band-color: tokens.$background-color-accent;
+$_distance-from-edge: fluid-unit(80px, 120px);
+$_decoration-1-width: px-to-rem(20px);
+$_decoration-2-width: px-to-rem(15px);
+
+.footer {
+    container: footer / inline-size;
+    margin: tokens.$spacing-xl 0;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-lg;
+}
+
+.footer__band {
+    background-color: $_band-color;
+    position: relative;
+    padding: tokens.$spacing-lg tokens.$spacing-xl;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: tokens.$spacing-xs;
+    color: tokens.$text-color-light;
+    font-size: tokens.$body-font-size-md;
+
+    @container footer (width > 480px) {
+        flex-direction: row;
+        gap: tokens.$spacing-lg;
+    }
+
+    // Decorations on the shortened side of each band
+    &::before,
+    &::after {
+        content: "";
+        background-color: $_band-color;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+    }
+
+    // Sizing for the first decoration
+    &::before {
+        width: $_decoration-1-width;
+    }
+
+    // Sizing for the second decoration
+    &::after {
+        width: $_decoration-2-width;
+    }
+
+    // Styles specific to the first band
+    &:first-child {
+        margin-right: $_distance-from-edge;
+
+        // Positioning for the first decoration
+        &::before {
+            right: -#{$_decoration-1-width * 2};
+        }
+
+        // There is only one decoration for the first band
+        &::after {
+            content: none;
+        }
+    }
+
+    // Styles specific to the second band
+    &:last-child {
+        margin-left: $_distance-from-edge;
+
+        &::before {
+            left: -#{$_decoration-1-width * 2};
+        }
+
+        &::after {
+            left: -#{$_decoration-2-width + ($_decoration-1-width * 3)}
+        }
+    }
+
+    .link {
+        color: tokens.$text-color-light;
+        text-decoration-color: tokens.$border-color-light;
+
+        &:hover,
+        &:focus {
+            background-color: tokens.$background-color-light;
+            color: tokens.$text-color-action;
+        }
+    }
+}

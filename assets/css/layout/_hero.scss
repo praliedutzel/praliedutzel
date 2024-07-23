@@ -1,0 +1,180 @@
+@use "../functions" as *;
+@use "../tokens";
+
+$_hero-padding: tokens.$spacing-2xl;
+$_hero-gap: tokens.$spacing-lg;
+$_hero-graphic-max-width: 33%;
+$_hero-breakpoint: 1024px;
+
+.hero {
+    background-color: tokens.$background-color-accent;
+    position: relative;
+    padding: $_hero-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $_hero-gap;
+    color: tokens.$text-color-light;
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        min-height: px-to-rem(480px);
+        margin-bottom: tokens.$spacing-xl;
+        padding: $_hero-padding $_hero-padding 0;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.hero:has(img):not(.hero--homepage) {
+    margin-bottom: calc(#{$_hero-padding} * 2);
+    padding: $_hero-padding $_hero-padding 0;
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        margin-bottom: tokens.$spacing-xl;
+    }
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-xl;
+    flex: 1;
+    font-size: tokens.$body-font-size-xl;
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        margin-bottom: $_hero-padding;
+    }
+}
+
+.hero .link {
+    align-self: flex-start;
+    color: tokens.$text-color-light;
+    text-decoration-color: tokens.$border-color-light;
+
+    &:hover,
+    &:focus {
+        background-color: tokens.$background-color-light;
+        color: tokens.$text-color-action;
+    }
+}
+
+// Decoration for hero without an image
+.hero > .dots {
+    transform: translateY(#{px-to-rem(50px)});
+
+    @container main (width < #{$_hero-breakpoint}) {
+        display: none;
+    }
+}
+
+.hero__media {
+    position: relative;
+    margin-bottom: calc(#{$_hero-padding} * -1);
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        max-width: $_hero-graphic-max-width;
+    }
+}
+
+// Decoration for hero images
+.hero__media .dots {
+    position: absolute;
+    right: tokens.$spacing-md;
+    bottom: 0;
+    transform: translateY(90%);
+
+    @container main (width < #{$_hero-breakpoint}) {
+        position: relative;
+        width: 8rem;
+        height: auto;
+        right: 0;
+        margin-bottom: $_hero-gap;
+        transform: none;
+    }
+}
+
+// Prevents content below hero from overlapping with the image
+.hero-cutout {
+    padding: 0 $_hero-padding;
+    
+    @container main (width >= #{$_hero-breakpoint}) {
+        max-width: calc((100% - $_hero-graphic-max-width) - $_hero-gap);
+    }
+}
+
+.hero--homepage {
+    margin: tokens.$spacing-xl;
+    min-height: px-to-rem(800px);
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        margin-right: calc(#{tokens.$spacing-xl} * 2);
+        padding-right: 0;
+        gap: tokens.$spacing-2xl;
+    }
+}
+
+.hero--homepage .hero__content {
+    align-self: center;
+}
+
+.hero--homepage .hero__media {
+    margin-right: calc(#{$_hero-padding} * -1);
+    align-self: flex-start;
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        margin-right: calc(#{$_hero-padding} * 2 * -1);
+        align-self: auto;
+    }
+}
+
+.hero--homepage .hero__image {
+    position: relative;
+    z-index: 1;
+
+    @container main (width < #{$_hero-breakpoint}) {
+        max-width: px-to-rem(300px);
+    }
+}
+
+// Decoration for homepage hero
+.hero--homepage .hero__media .dots {
+    @container main (width < #{$_hero-breakpoint}) {
+        position: absolute;
+        width: 3rem;
+        z-index: 2;
+        top: 0;
+        margin-bottom: 0;
+        transform: translate(1rem, 2rem);
+    }
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        right: auto;
+        left: 0;
+        bottom: tokens.$spacing-md;
+        display: block;
+        transform: translateX(calc(-100% - #{tokens.$spacing-sm}));
+    }
+}
+
+// Decorative shapes for homepage hero
+.hero--homepage .hero__shapes {
+    display: none;
+
+    &.hero__shapes--corner {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: block;
+    }
+
+    @container main (width >= #{$_hero-breakpoint}) {
+        position: relative;
+        right: -0.75rem;
+        display: block;
+        z-index: 2;
+        transform: translateY(10.5%);
+
+        &.hero__shapes--corner {
+            display: none;
+        }
+    }
+}

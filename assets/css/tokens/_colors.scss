@@ -1,0 +1,38 @@
+$_primary: #6F14E6;
+$_secondary: #BF12CE;
+$_tertiary: #F8F3FD;
+$_grey: #232429;
+$_white: #FFFFFF;
+
+// Text colors
+$text-color-dark: $_grey;
+$text-color-light: $_white;
+$text-color-accent: $_primary;
+$text-color-action: $_secondary;
+
+// Icon colors
+$icon-color-dark: $_secondary;
+$icon-color-light: $_white;
+
+// Background colors
+$background-color-accent: $_primary;
+$background-color-action: $_secondary;
+$background-color-subtle: $_tertiary;
+$background-color-dark: $_grey;
+$background-color-light: $_white;
+
+// Border colors
+$border-color-accent: $_primary;
+$border-color-action: $_secondary;
+$border-color-dark: $_grey;
+$border-color-light: $_white;
+
+// Brand-specific colors
+$brand-colors: (
+    "polaris": #004E97,
+    "joydrive": #4ADED5,
+    "subaru": #00266E,
+    "vrbo": #0E214B,
+    "expedia-group": #000099,
+    "pxg": #000000
+);

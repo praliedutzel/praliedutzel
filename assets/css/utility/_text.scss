@@ -1,0 +1,15 @@
+@use "../tokens";
+
+@each $scale, $size in tokens.$font-sizes {
+    .font-size-#{$scale} {
+        font-size: $size;
+    }
+}
+
+.semibold-text {
+    font-weight: tokens.$font-weight-semibold;
+}
+
+.center-text {
+    text-align: center;
+}

@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "../tokens";
+
+.bg-dark {
+    background-color: tokens.$background-color-dark;
+}
+
+.bg-light {
+    background-color: tokens.$background-color-light;
+}
+
+.bg-accent {
+    background-color: tokens.$background-color-accent;
+}
+
+.bg-subtle {
+    background-color: tokens.$background-color-subtle;
+}
+
+@each $brand, $color in tokens.$brand-colors {
+    .bg-#{$brand} {
+        background-color: $color;
+    }
+}

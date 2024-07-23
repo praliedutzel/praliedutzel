@@ -1,0 +1,20 @@
+@use "sass:map";
+@use "../functions" as *;
+
+$spacing: (
+    "2xs": px-to-rem(5px),
+    "xs": fluid-unit(8px, 10px),
+    "sm": fluid-unit(16px, 20px),
+    "md": fluid-unit(20px, 30px),
+    "lg": fluid-unit(28px, 40px),
+    "xl": fluid-unit(30px, 60px),
+    "2xl": fluid-unit(40px, 80px)
+);
+
+$spacing-2xs: map.get($spacing, "2xs");
+$spacing-xs: map.get($spacing, "xs");
+$spacing-sm: map.get($spacing, "sm");
+$spacing-md: map.get($spacing, "md");
+$spacing-lg: map.get($spacing, "lg");
+$spacing-xl: map.get($spacing, "xl");
+$spacing-2xl: map.get($spacing, "2xl");

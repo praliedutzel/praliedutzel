@@ -1,0 +1,33 @@
+@use "sass:math";
+@use "sass:map";
+
+@function px-to-rem($px) {
+    @return math.div($px, 16px) * 1rem;
+}
+
+@function round-decimal($number, $places: 0) {
+    $n: 1;
+    @if $places > 0 {
+      @for $i from 1 through $places {
+        $n: $n * 10;
+      }
+    }
+    @return math.div(math.round($number * $n), $n);
+}
+
+$_min-breakpoint: 420px;
+$_max-breakpoint: 1920px;
+
+@function fluid-unit($min, $max) {
+    $slope: math.div($max - $min, $_max-breakpoint - $_min-breakpoint);
+    $slope-vw: round-decimal($slope * 100, 2);
+    $intercept-rems: round-decimal(px-to-rem($min - $slope * $_min-breakpoint), 2);
+    $min-rems: round-decimal(px-to-rem($min), 2);
+    $max-rems: round-decimal(px-to-rem($max), 2);
+
+    @return clamp(
+        #{$min-rems},
+        #{$slope-vw}vw + #{$intercept-rems},
+        #{$max-rems}
+    );
+}

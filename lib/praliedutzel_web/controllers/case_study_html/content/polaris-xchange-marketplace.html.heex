@@ -1,0 +1,111 @@
+<p>
+  Looking to have a unified marketplace where customers could shop for powersports vehicles online, Polaris partnered with Joydrive to build out a robust suite of tools to manage both the marketplace and dealer inventory.
+</p>
+
+<p>
+  This was a large endeavor with many collaborators working to deliver multiple products for Polaris. My contributions to this project included:
+</p>
+
+<ul>
+  <li>
+    Working with the brand team at Polaris to execute their vision for the brand while integrating it with Joydrive's technology
+  </li>
+
+  <li>
+    Leading major product design initiatives for the wholesale auction system, authentication, demo rides, and dealer tools
+  </li>
+
+  <li>
+    Collaborating on designs for marketing pages, the checkout process, saved search, and a number of smaller features
+  </li>
+
+  <li>
+    Expanding
+    <.link href={~p"/case-studies/joydrive-multi-brand-theme-support"} class="link">
+      Joydrive's multi-brand theme support
+    </.link>
+    to allow for custom fonts and varying styles across a number of components
+  </li>
+
+  <li>
+    Implementing designs, components, and interactions in Elixir and Phoenix, and pairing with back-end developers for more complex features
+  </li>
+
+  <li>
+    Spearheading multiple accessibility audits with a goal of achieving WCAG 2.1 compliance across five product verticals
+  </li>
+
+  <li>Creating and managing the Content Security Policy for SOC 2 compliance</li>
+
+  <li>Building custom HTML email templates and testing across a number of email clients</li>
+</ul>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/polaris-xchange-homepage.png"}
+    alt="Screenshot of the homepage for polarisxchange.com. The page includes a large image of two people next to an offroad vehicle, an overview of what the company does and what types of powersports vehicles are available, and calls-to-action for searching or trading in your ride."
+  />
+  <figcaption>The top portion of the homepage</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Powersports Marketplace</.decorative_heading>
+
+<p>
+  The powersports marketplace is powered by Joydrive's technology, but it was imperative that everything align with Polaris' brand strategy and be tailored for powersports vehicles, which have different needs than automotive vehicles. Our design team worked closely with Polaris to design custom marketing pages and provide a strategy for how the search, vehicle detail, and checkout pages would adapt. From there, we collaborated with our team's Elixir developers to integrate the designs, apply conditional logic to shared templates, and build out powersports-focused features. This was an extremely iterative process leading up to launch, as we needed to achieve approval from both Joydrive and Polaris stakeholders.
+</p>
+
+<p>
+  The site was built with Elixir and Phoenix, and we made use of Phoenix LiveView for dynamic interactions. The marketplace features saved search capabilities, multi-level filtering, vehicle condition reports, demo rides, a favoriting system, guest checkout flow, customizable payment options, and instant pre-qualification with multiple lender integrations.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/polaris-xchange-vehicle-detail-page.png"}
+    alt="Screenshot of a powersports vehicle detail page on polarisxchange.com. The page includes details about the vehicle, a featured image, pricing information, and multiple calls-to-action enticing customers to purchase or try a demo ride."
+  />
+  <figcaption>Powersports vehicle detail page with multiple calls-to-action</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Dealer Tools</.decorative_heading>
+
+<p>
+  In addition to the marketplace, our team also built a number of dealer tools to handle inventory management, access lead information, and manage transactions. We also created a B2B wholesale auction system from the ground up, including robust auction management and live bidding.
+</p>
+
+<p>
+  I led product design initiatives for the auction system and multiple dealer tools, including an accessibility retooling of data visualizations. My overarching goals for these products were to create intuitive user experiences and reduce information density without sacrificing critical details.
+</p>
+
+<p>
+  Due to the nature of this work, additional details about dealer tools and the wholesale auction can only be provided upon request.
+  <.link href={"mailto:#{contact_email()}"} class="link">Send me an email</.link>
+  if you want to learn more.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/polaris-xchange-auction-run-list.png"}
+    alt="Example of a running auction with multiple listings for powersports vehicles filling time slots in 15 minute increments. Each listing is shown in a different state between closed, live, upcoming, and draft, and contains details about the vehicle, starting price, and shipping costs."
+  />
+  <figcaption>Concept for a wholesale auction run list</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Challenges</.decorative_heading>
+
+<p>
+  One of the main challenges of this work overall was creating a strategy and systems to handle a new brand built with Joydrive's technology that needed far more customization than what we had previously offered with our digital retailing tools. It wasn't enough to change some colors and a logo; we needed tighter control over the designs and content.
+</p>
+
+<p>
+  We accomplished this on the design and CSS fronts by extending our design system to make use of layered design tokens, and revising the Sass to allow significantly more overrides for theming. Check out the case study on
+  <.link href={~p"/case-studies/joydrive-multi-brand-theme-support"} class="link">
+    multi-brand theme support
+  </.link>
+  for more details.
+</p>
+
+<.decorative_heading tag="h3" style="simpler">Outcome</.decorative_heading>
+
+<p>
+  Polaris Xchange was launched in 2023 and has an ongoing feature development partnership with Joydrive. The partnership has allowed Polaris to offload the building and maintenance of the technology side, while still having an experience tailored to powersports vehicles. The launch was a success and inventory has continued to move through both the customer-facing marketplace and the dealer-focused wholesale auction.
+</p>

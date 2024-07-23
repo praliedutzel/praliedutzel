@@ -1,0 +1,131 @@
+<p>
+  As Joydrive expanded from being an automotive marketplace into building technology solutions for external clients, they were in need of a website refresh to reflect their growing business and give it a face lift from their early start-up days.
+</p>
+
+<p>I was the lead designer for this project and focused on a few key areas:</p>
+
+<ul>
+  <li>
+    Merging the messaging for customers using the automotive marketplace with the new messaging that the company builds technology solutions to help power other marketplaces and tools like digital retailing
+  </li>
+
+  <li>
+    Updating the company's brand colors to meet color contrast minimums for enhanced accessibility while maintaining the existing brand integrity
+  </li>
+
+  <li>
+    Bringing new life to page designs with a clean and modern UI that incorporates the company's message that car buying should be fun
+  </li>
+
+  <li>Leveraging fresh design elements to stand out from similar competition</li>
+
+  <li>
+    Reworking the information architecture and copywriting for marketing pages to ensure copy is more digestible and potential customers have all the information they need to get started
+  </li>
+</ul>
+
+<.decorative_heading tag="h3" style="simpler">The Design Process</.decorative_heading>
+
+<p>
+  After talking through the objectives with my product manager, I began by reviewing the existing site from the lens of a potential customer, taking note of the existing copy, information architecture, and calls-to-action. From there, I conducted market research on competitors, began sketching and wireframing out design ideas, and worked through multiple iterations in Figma.
+</p>
+
+<p>
+  I went through multiple rounds of feedback from the other designer on the team, product managers, and our founder & CEO to ensure both the design and the content reflected the goals of the redesign.
+</p>
+
+<p>
+  The final design makes use of bright colors, gradients, curves, and shapes to bring a level of fun to an otherwise clean, modern look, without being too dramatic. This makes Joydrive stand out more among the competition without sacrificing critical messaging for customers.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/joydrive-redesign-homepage.png"}
+    alt="Screenshot of the homepage for joydrive.com. The page includes image previews of the app's checkout and vehicle detail page; an overview of what the company does and how the process works; a list of partners, certifications, and news outlets; and calls-to-action for buying or trading in your ride."
+  />
+  <figcaption>The top portion of the redesigned homepage</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Design Challenges</.decorative_heading>
+
+<p>
+  One of the challenges of this project was meshing messaging for customers looking to buy a car with sharing the company's technology offerings. While most of the homepage is more geared towards the car buying process, we also feature a blurb about the company that establishes what they are for new customers, informs users that they also create technology for specific brands, and includes a call-to-action to learn more about the company. This was a critical piece of the design to push potential partners to the about page.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/joydrive-redesign-technology-messaging.png"}
+    alt="Banner taken from the homepage on joydrive.com, which includes a rendition of the Joydrive logo, a description about how the company offers technology solutions, and a call-to-action to learn more."
+  />
+  <figcaption>Call-to-action banner directing to the about page</figcaption>
+</figure>
+
+<p>
+  The about page includes more in-depth details about the specific types of solutions the company offers, industries serviced, technology the company utilizes, and a call-out to their SOC 2 Type II certification, which was important to highlight for security-conscience partners.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/joydrive-redesign-about-page.png"}
+    alt="Screenshot of the about page on joydrive.com. The page includes a list of partners and certifications, descriptions about what the company does, and a list of what type of technology solutions they build."
+  />
+  <figcaption>The top portion of the redesigned about page</figcaption>
+</figure>
+
+<p>
+  Another challenge was updating the brand colors to meet color contrast minimums without drastically changing the brand identity. The original colors were not accessible against white backgrounds or with white text, and appeared too dull with dark text. I worked through extensive iterations of the palette to find options that were accessible, looked good, and brought an air of freshness to the larger design.
+</p>
+
+<p>
+  I also introduced light and dark iterations of these colors to extend the range of uses against varying backgrounds. I've found this to be more effective in practice than opening up a larger range of color steps, as it forces designers and developers to make more informed decisions about color usage rather than picking one from ten steps at random.
+</p>
+
+<figure>
+  <.image
+    src={~p"/images/case-studies/#{@slug}/joydrive-redesign-color-tokens.png"}
+    alt="List of design tokens for brand, action, and accent colors, with each color represented by a name, color swatch, and Hex code. The brand and action colors include base, light, and dark versions, while the accent color only includes a base color."
+  />
+  <figcaption>Updated design tokens for the key brand colors</figcaption>
+</figure>
+
+<.decorative_heading tag="h3" style="simpler">Elixir Development</.decorative_heading>
+
+<p>
+  Once the design was approved, I also handled the implementation in Elixir and Phoenix. This included:
+</p>
+
+<ul>
+  <li>
+    Updating design tokens across Figma, Sass, and our CSS variables used for multi-brand theming
+  </li>
+
+  <li>Creating new components and templates in Elixir and Phoenix</li>
+
+  <li>
+    Ensuring
+    <.link href={~p"/case-studies/joydrive-multi-brand-theme-support"} class="link">
+      multi-brand theme support
+    </.link>
+    remained intact with no changes to Polaris Xchange, which uses an entirely unique design
+  </li>
+
+  <li>Thorough testing for site responsiveness</li>
+
+  <li>
+    Writing JavaScript for the new animations on the home and about pages and ensuring it only plays when visible on screen
+  </li>
+
+  <li>Preparing new image, logo, and icon assets for multiple screen sizes</li>
+
+  <li>Removing/refactoring old code to reduce code bloat</li>
+</ul>
+
+<.decorative_heading tag="h3" style="simpler">Outcome</.decorative_heading>
+
+<p>
+  With the launch of the redesign, Joydrive was able to start more conversations with potential partners interested in their technology offerings.
+</p>
+
+<p>
+  The company also saw a decrease in the number of customer support messages for common questions that were now properly explained in the updated copy.
+</p>

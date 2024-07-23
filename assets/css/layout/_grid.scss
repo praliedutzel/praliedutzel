@@ -1,0 +1,43 @@
+@use "../functions" as *;
+@use "../tokens";
+
+.grid {
+    display: grid;
+    gap: 0;
+}
+
+.grid--halves {
+    grid-template-columns: 1fr;
+
+    @container main (width >= 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid--thirds {
+    grid-template-columns: repeat(2, 1fr);
+
+    @container main (width >= 600px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid--fourths {
+    grid-template-columns: repeat(2, 1fr);
+
+    @container main (width >= 600px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@each $size, $value in tokens.$spacing {
+    .grid--gap-#{$size} {
+        gap: $value;
+    }
+}
+
+.grid__sticky-cell {
+    position: sticky;
+    top: calc(#{px-to-rem(70px)} + tokens.$spacing-xl);
+    align-self: flex-start;
+}

@@ -1,0 +1,65 @@
+<main id="main" tabindex="-1">
+  <article>
+    <.hero homepage?={true} image={~p"/images/pralie-dutzel-profile-photo.png"}>
+      <:title><%= gettext("Senior UX Designer & Front-End Developer") %></:title>
+      <:description>
+        <%= gettext(
+          "Hi there! My name's Pralie Dutzel and I'm a user experience designer, front-end developer, accessibility advocate, and design strategist."
+        ) %>
+      </:description>
+      <:action>
+        <.link href={~p"/about"} class="link">
+          <%= gettext("Learn more") %>
+          <.icon name="arrow" />
+        </.link>
+      </:action>
+    </.hero>
+
+    <div class="container container--size-lg container--gutters">
+      <h2 id="skills-list"><%= gettext("I specialize in building...") %></h2>
+      <ul class="tag-list margin-top-lg" aria-labelledby="skills-list">
+        <.tag :for={skill <- skills()} size="lg">
+          <%= skill %>
+        </.tag>
+      </ul>
+    </div>
+  </article>
+
+  <section>
+    <div class="container container--gutters center-text">
+      <.decorative_heading tag="h2" style="bolder">
+        <%= gettext("Brands I've worked with") %>
+      </.decorative_heading>
+    </div>
+    <ul class="grid grid--thirds bg-dark" aria-label={gettext("brands")}>
+      <li :for={brand <- brands()} class={"tile bg-#{brand.name}"}>
+        <div class="tile__content">
+          <img
+            src={~p"/images/brands/#{"brand-logo-" <> brand.name <> ".svg"}"}
+            alt={brand.display_name}
+          />
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="margin-top-2xl">
+    <div class="container container--size-sm container--gutters center-text">
+      <.decorative_heading tag="h2" style="bolder">
+        <%= gettext("Selected case studies") %>
+      </.decorative_heading>
+      <ul class="margin-top-2xl" aria-label={gettext("case studies")}>
+        <li :for={case_study <- @case_studies} class="card-wrapper">
+          <.card slug={case_study.slug} tags={case_study.tags}>
+            <:title><%= case_study.title %></:title>
+            <:description><%= case_study.teaser_text %></:description>
+          </.card>
+        </li>
+      </ul>
+      <.link href={~p"/case-studies"} class="link font-size-scale-3 semibold-text margin-top-xl">
+        <%= gettext("View more case studies") %>
+        <.icon name="arrow" />
+      </.link>
+    </div>
+  </section>
+</main>

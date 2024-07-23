@@ -1,0 +1,37 @@
+@use "../functions" as *;
+@use "../tokens";
+
+$_gutters: tokens.$spacing-2xl;
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.container--size-sm {
+    max-width: px-to-rem(1280px);
+
+    &.container--gutters {
+        max-width: calc(px-to-rem(1280px) + ($_gutters * 2));
+    }
+}
+
+.container--size-md {
+    max-width: px-to-rem(1440px);
+
+    &.container--gutters {
+        max-width: calc(px-to-rem(1440px) + ($_gutters * 2));
+    }
+}
+
+.container--size-lg {
+    max-width: px-to-rem(1660px);
+
+    &.container--gutters {
+        max-width: calc(px-to-rem(1660px) + ($_gutters * 2));
+    }
+}
+
+.container--gutters {
+    padding: $_gutters;
+}

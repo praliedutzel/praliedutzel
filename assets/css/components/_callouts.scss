@@ -1,0 +1,29 @@
+@use "../tokens";
+
+.callout {
+    container: callout / inline-size;
+    background-color: tokens.$background-color-subtle;
+    border-radius: tokens.$rounded-corners;
+    padding: tokens.$spacing-md;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: tokens.$spacing-sm;
+
+    svg {
+        flex-shrink: 0;
+    }
+}
+
+.callout__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-2xs;
+    font-size: tokens.$body-font-size-sm;
+    font-style: italic;
+
+    @container callout (width < 380px) {
+        flex-basis: 100%;
+    }
+}

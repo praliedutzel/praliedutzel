@@ -1,0 +1,22 @@
+@use "../tokens";
+
+.decorative-heading {
+    display: flex;
+    align-items: center;
+    gap: tokens.$spacing-sm;
+}
+
+.decorative-heading--bolder {
+    justify-content: center;
+    gap: tokens.$spacing-lg;
+    font-size: tokens.$heading-font-size-lg;
+    font-weight: tokens.$font-weight-bold;
+
+    .shapes:last-child {
+        transform: rotate(180deg);
+    }
+}
+
+.decorative-heading--simpler {
+    gap: tokens.$spacing-xs;
+}

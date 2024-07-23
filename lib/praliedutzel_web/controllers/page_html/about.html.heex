@@ -1,0 +1,158 @@
+<article>
+  <.hero>
+    <:title><%= @hero_title %></:title>
+  </.hero>
+  <div class="container container--size-md container--gutters">
+    <section class="grid grid--halves grid--gap-2xl">
+      <div class="prose">
+        <.decorative_heading tag="h2">
+          <%= gettext("Designer & Developer") %>
+        </.decorative_heading>
+
+        <p>
+          <%= raw(gettext("Hi there! I'm Pralie (pronounced <em>pray-lee</em>),
+                        and I'm a user experience designer, front-end developer,
+                        accessibility advocate, and design strategist currently
+                        living in Austin, Texas.")) %>
+        </p>
+
+        <p>
+          <%= gettext("Although my educational background is in video game design,
+                        I got my start building websites and doing graphic design
+                        in middle school. Since then, I've honed both my design
+                        and front-end development skills to craft a variety of
+                        experiences for a number of clients, including Polaris,
+                        Joydrive, Subaru, Vrbo, Expedia Group, PXG, and Valley
+                        of the Sun YMCA.") %>
+        </p>
+
+        <p>
+          <%= gettext("I love working in hybrid roles that let me leverage both
+                        sides of my skill set. As a designer, I strive to create
+                        clean designs that establish and maintain a cohesive
+                        identity throughout, and especially enjoy honing complex,
+                        information-dense systems into intuitive experiences.
+                        On the development side, I specialize in CSS, writing
+                        semantic code with a focus on accessibility, and building
+                        component libraries. I've used a number of different
+                        programming languages throughout my career, and am always
+                        excited to learn a new framework. My current obsessions
+                        include design systems, container queries, Phoenix
+                        components, and, as always, finding that perfect font.") %>
+        </p>
+
+        <p>
+          <%= raw(
+            gettext(
+              "You can find <a href='%{case_studies_link}' class='link'>
+                        case studies of selected projects I've worked on here</a>,
+                        and more in-depth details can be provided for NDA work upon
+                        request.",
+              case_studies_link: ~p"/case-studies"
+            )
+          ) %>
+        </p>
+
+        <p :if={portfolio_figma_link() && portfolio_github_link()}>
+          <%= raw(
+            gettext(
+              "You can also check out the <a href='%{figma_link}' class='link'>
+                        Figma file</a> and <a href='%{figma_link}' class='link'>GitHub
+                        repository</a> for this site, which was designed and built by me,
+                        to get a better feel for how I work and organize things.",
+              figma_link: portfolio_figma_link(),
+              github_link: portfolio_github_link()
+            )
+          ) %>
+        </p>
+
+        <.callout>
+          <span>
+            <%= raw(
+              gettext(
+                "Ready to get in touch? Email me at <a href='mailto:%{email}' class='link'>%{email}</a>.",
+                email: contact_email()
+              )
+            ) %>
+          </span>
+        </.callout>
+      </div>
+
+      <div class="grid__sticky-cell">
+        <div class="panel">
+          <div class="panel__section">
+            <h3 id="skills-list" class="panel__title">
+              <%= gettext("I specialize in building...") %>
+            </h3>
+
+            <ul class="tag-list" aria-labelledby="skills-list">
+              <.tag :for={skill <- skills()} size="sm">
+                <%= skill %>
+              </.tag>
+            </ul>
+          </div>
+
+          <div class="panel__section">
+            <h3 id="tools-list" class="panel__title">
+              <%= gettext("My favorite tools are...") %>
+            </h3>
+
+            <ul class="tag-list" aria-labelledby="tools-list">
+              <.tag :for={tool <- fav_tools()} size="sm">
+                <%= tool %>
+              </.tag>
+            </ul>
+          </div>
+
+          <div class="panel__section">
+            <h3 id="conversation-starters" class="panel__title">
+              <%= gettext("Let's chat about...") %>
+            </h3>
+
+            <ul class="tag-list" aria-labelledby="conversation-starters">
+              <.tag :for={topic <- conversation_starters()} size="sm">
+                <%= topic %>
+              </.tag>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid grid--fourths grid--gap-sm" role="presentation">
+    <.image src={~p"/images/about-teaser-1.png"} alt="" />
+    <.image src={~p"/images/about-teaser-2.png"} alt="" />
+    <.image src={~p"/images/about-teaser-3.png"} alt="" />
+    <.image src={~p"/images/about-teaser-4.png"} alt="" />
+  </div>
+
+  <section class="container container--size-sm container--gutters center-text">
+    <.decorative_heading tag="h2" style="bolder">
+      <%= gettext("Experience, Talks, & Awards") %>
+    </.decorative_heading>
+
+    <div class="grid grid--halves grid--gap-lg margin-top-xl">
+      <.experience_panel
+        :for={item <- @experience}
+        title={item.title}
+        company={item.company}
+        year={item.timeframe}
+      >
+        <%= raw(item.description) %>
+      </.experience_panel>
+    </div>
+
+    <div class="link-group margin-top-xl">
+      <.link href={resume_link()} class="link" target="_blank">
+        <%= gettext("Download my resume") %>
+      </.link>
+
+      <span role="presentation">//</span>
+
+      <.link href={~p"/case-studies"} class="link">
+        <%= gettext("View my work") %>
+      </.link>
+    </div>
+  </section>
+</article>

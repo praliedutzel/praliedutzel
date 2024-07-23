@@ -1,0 +1,86 @@
+@use "../functions" as *;
+@use "../tokens";
+
+// Remove default browser font styles on form fields
+input, button, textarea, select {
+    font: inherit;
+}
+
+.form__content {
+    width: 100%;
+    max-width: px-to-rem(760px);
+    margin: auto;
+    padding: tokens.$spacing-2xl
+}
+
+.form__actions {
+    background-color: tokens.$background-color-subtle;
+    position: sticky;
+    bottom: 0;
+    padding: tokens.$spacing-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: tokens.$spacing-sm;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-2xs;
+}
+
+.form-field__fieldset {
+    border: 2px solid tokens.$border-color-dark;
+
+    &.has-error {
+        border-color: red;
+    }
+}
+
+.form-field__legend {
+    font-weight: tokens.$font-weight-semibold;
+}
+
+.form-field__label {
+    display: block;
+    font-weight: tokens.$font-weight-semibold;
+
+    .form-field__fieldset & {
+        font-weight: tokens.$font-weight-regular;
+    }
+}
+
+.form-field__help-text {
+    font-size: tokens.$body-font-size-sm;
+    font-style: italic;
+}
+
+.form-field__input {
+    border: 2px solid tokens.$border-color-dark;
+    padding: tokens.$spacing-2xs tokens.$spacing-xs;
+
+    &.has-error {
+        border-color: red;
+    }
+}
+
+.form-field__error {
+    display: flex;
+    align-items: center;
+    gap: tokens.$spacing-xs;
+    color: red;
+    font-size: tokens.$body-font-size-sm;
+    font-style: italic;
+}
+
+.button {
+    background-color: tokens.$background-color-action;
+    border: none;
+    border-radius: tokens.$rounded-corners;
+    padding: tokens.$spacing-xs tokens.$spacing-sm;
+    color: tokens.$text-color-light;
+    font-weight: tokens.$font-weight-semibold;
+    cursor: pointer;
+}
+

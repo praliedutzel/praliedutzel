@@ -1,0 +1,13 @@
+@use "../tokens";
+
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    align-self: center;
+    vertical-align: baseline;
+}
+
+.icon--color-light {
+    color: tokens.$icon-color-light;
+}

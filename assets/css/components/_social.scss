@@ -1,0 +1,22 @@
+@use "../tokens";
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: tokens.$spacing-sm;
+    font-size: tokens.$body-font-size-lg;
+}
+
+.social__item {
+    flex-shrink: 0;
+}
+
+.social__link {
+    display: flex;
+    transition: transform 0.3s ease-out;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+    }
+}

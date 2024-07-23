@@ -1,0 +1,113 @@
+@use "../functions" as *;
+@use "../tokens";
+
+$_card-radius: tokens.$rounded-corners;
+$_card-breakpoint: 800px;
+
+.card-wrapper {
+    container: card / inline-size;
+
+    & + & {
+        margin-top: tokens.$spacing-xl;
+    }
+}
+
+.card {
+    background-color: tokens.$background-color-subtle;
+    border-radius: $_card-radius;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    box-shadow: none;
+    transition: box-shadow 0.5s ease-out;
+
+    @container card (width > #{$_card-breakpoint}) {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 10px 40px 0 rgba(111, 20, 100, 0.3);
+    }
+}
+
+.card__content {
+    flex: 1;
+    padding: tokens.$spacing-lg tokens.$spacing-xl;
+
+    @container card (width > #{$_card-breakpoint}) {
+        .card-wrapper:nth-child(even) & {
+            order: 2;
+        }
+    }
+}
+
+.card__title {
+    font-family: tokens.$body-font;
+    font-size: tokens.$body-font-size-xl;
+}
+
+.card__description {
+    margin-top: tokens.$spacing-sm;
+
+    @container card (width < #{$_card-breakpoint}) {
+        display: none;
+    }
+}
+
+.card__tags {
+    margin-top: tokens.$spacing-md;
+}
+
+.card__media {
+    position: relative;
+    width: 100%;
+
+    @container card (width > #{$_card-breakpoint}) {
+        width: auto;
+        flex-basis: 33%;
+
+        .card-wrapper:nth-child(even) & {
+            order: 1;
+        }
+    }
+}
+
+.card__media-image {
+    height: px-to-rem(375px);
+    object-fit: cover;
+
+    @container card (width < #{$_card-breakpoint}) {
+        width: 100%;
+        height: px-to-rem(300px);
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-right-radius: $_card-radius;
+        border-bottom-left-radius: $_card-radius;
+    }
+
+    .card-wrapper:nth-child(odd) & {
+        border-top-right-radius: $_card-radius;
+        border-bottom-right-radius: $_card-radius;
+    }
+    
+    .card-wrapper:nth-child(even) & {
+        border-top-left-radius: $_card-radius;
+        border-bottom-left-radius: $_card-radius;
+    }
+}
+
+.card__media .dots {
+    position: absolute;
+
+    .card-wrapper:nth-child(odd) & {
+        bottom: px-to-rem(16px);
+        right: -#{px-to-rem(10px)};
+    }
+
+    .card-wrapper:nth-child(even) & {
+        top: px-to-rem(16px);
+        left: -#{px-to-rem(10px)};
+    }
+}

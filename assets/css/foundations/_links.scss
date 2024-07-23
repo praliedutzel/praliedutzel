@@ -1,0 +1,40 @@
+@use "../tokens";
+
+.link {
+    position: relative;
+    margin: 0 0.1rem;
+    color: tokens.$text-color-action;
+    font-style: italic;
+    text-decoration-line: underline;
+    text-decoration-color: tokens.$border-color-action;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
+    text-underline-offset: 0.2em;
+    transition: all 0.3s ease-out;
+
+    &:has(.icon) {
+        display: inline-flex;
+        gap: tokens.$spacing-xs;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: tokens.$background-color-action;
+        color: tokens.$text-color-light;
+    }
+}
+
+.link-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: tokens.$spacing-sm;
+    font-size: tokens.$body-font-size-lg;
+    font-weight: tokens.$font-weight-semibold;
+
+    @container main (width > 600px) {
+        flex-direction: row;
+        gap: tokens.$spacing-lg;
+    }
+}

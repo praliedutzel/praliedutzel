@@ -1,0 +1,16 @@
+@use "../tokens";
+
+figure {
+    background-color: tokens.$background-color-dark;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$spacing-xs;
+    padding: tokens.$spacing-sm;
+    text-align: center;
+}
+
+figcaption {
+    color: tokens.$text-color-light;
+    font-size: tokens.$body-font-size-sm;
+    font-style: italic;
+}

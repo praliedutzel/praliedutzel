@@ -1,0 +1,60 @@
+@use "../functions" as *;
+@use "../tokens";
+
+.header {
+    container: header / inline-size;
+    background-color: tokens.$background-color-accent;
+    padding: 0 tokens.$spacing-lg;
+    position: sticky;
+    top: 0;
+    height: px-to-rem(70px);
+    z-index: 1;
+    display: flex;
+}
+
+.header__navbar {
+    display: flex;
+    flex: 1;
+}
+
+.menu {
+    display: flex;
+    flex: 1;
+}
+
+.menu__item:first-child {
+    margin-right: auto;
+}
+
+.menu__link {
+    padding: 0 tokens.$spacing-md;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: tokens.$text-color-light;
+    font-weight: tokens.$font-weight-semibold;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration-line: none;
+    text-decoration-color: tokens.$border-color-action;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
+    text-underline-offset: 0.2em;
+    transition: all 0.3s ease-out;
+
+    &:hover,
+    &:focus {
+        text-decoration-line: underline;
+    }
+}
+
+@container header (width < 500px) {
+    .menu__link {
+        padding: 0 tokens.$spacing-xs;
+    }
+
+    .last-name {
+        display: none;
+    }
+}
