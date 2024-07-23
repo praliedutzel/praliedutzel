@@ -56,9 +56,9 @@
         <p :if={portfolio_figma_link() && portfolio_github_link()}>
           <%= raw(
             gettext(
-              "You can also check out the <a href='%{figma_link}' class='link'>
-                        Figma file</a> and <a href='%{figma_link}' class='link'>GitHub
-                        repository</a> for this site, which was designed and built by me,
+              "You can also check out the <a href='%{figma_link}' class='link' target='_blank' rel='noopener'>
+                        Figma file</a> and <a href='%{github_link}' class='link' target='_blank' rel='noopener'>
+                        GitHub repository</a> for this site, which was designed and built by me,
                         to get a better feel for how I work and organize things.",
               figma_link: portfolio_figma_link(),
               github_link: portfolio_github_link()
