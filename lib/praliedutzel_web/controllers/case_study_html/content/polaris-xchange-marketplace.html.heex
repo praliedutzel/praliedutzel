@@ -90,6 +90,34 @@
   <figcaption>Concept for a wholesale auction run list</figcaption>
 </figure>
 
+<.decorative_heading tag="h3" style="simpler">Accessibility Compliance</.decorative_heading>
+
+<p>
+  A critical piece of building the product suite for Polaris was ensuring accessibility compliance, specifically achieving WCAG 2.1 compliance. I led these efforts across five product verticals, including creating auditing checklists for each product, performing the audits against the W3C's guidelines, creating tickets for failing items, and collaborating on the improvements to fix problematic areas.
+</p>
+
+<p>
+  Since the design team was not involved in every piece of work, I also put together guidelines for developers on things they should be keeping in mind when building out new features or updating pages. Some of these guidelines included:
+</p>
+
+<ul>
+  <li>Making sure heading tags are in sequential order</li>
+  <li>How to manage visible focus for LiveView events, which dynamically update the page</li>
+  <li>
+    Using accessible color combinations and how to check color contrast in browser developer tools
+  </li>
+  <li>
+    Ensuring all form fields have associated labels, help text, and error messages by using our form components
+  </li>
+  <li>
+    Avoiding wrapping complex components in button or label tags to prevent invalid child elements
+  </li>
+</ul>
+
+<p>
+  This is an ongoing effort at Joydrive, to ensure features both old and new are properly accessible.
+</p>
+
 <.decorative_heading tag="h3" style="simpler">Challenges</.decorative_heading>
 
 <p>
@@ -102,6 +130,10 @@
     multi-brand theme support
   </.link>
   for more details.
+</p>
+
+<p>
+  Another challenge came in the form of ensuring the wholesale auction system met accessibility requirements. These auctions included a number of complex features such as live bidding, listing management, and drag-and-drop features. I iterated through solutions for these challenges, including designing alternative controls for drag-and-drop functionality and handling aria-live announcements for visual changes as auctions receive new bids or other status changes.
 </p>
 
 <.decorative_heading tag="h3" style="simpler">Outcome</.decorative_heading>
