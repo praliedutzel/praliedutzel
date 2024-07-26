@@ -67,28 +67,23 @@ defmodule PraliedutzelWeb.CoreComponents do
 
   ## Examples
 
-    <.image src="/images/corgi.png" alt="An adorable corgi" />
-    <.image src="/images/decoration.png" />
-    <.image src="/images/pacman-ghost.png" class="color-orange" />
+    <.image src="/images/corgi.png" src_2x="/images/corgi@2x.png" alt="An adorable corgi" />
+    <.image src="/images/decoration.png" src_2x="/images/decoration@2x.png" />
+    <.image src="/images/pacman-ghost.png" src_2x="/images/pacman-ghost@2x.png" class="color-orange" />
   """
 
   attr :src, :string,
     required: true,
-    doc:
-      "Source for the image to display. A 2x version should be supplied with `@2x` at the end of the filename, before the extension"
+    doc: "Source for the image to display"
+
+  attr :src_2x, :string,
+    required: true,
+    doc: "Source for the 2x version of the image to display for retina devices"
 
   attr :alt, :string, default: "", doc: "Alt attribute to add to the image tag"
   attr :rest, :global
 
   def image(assigns) do
-    src_2x =
-      assigns.src
-      |> String.split(".")
-      |> List.insert_at(1, "@2x.")
-      |> Enum.join()
-
-    assigns = assign(assigns, :src_2x, src_2x)
-
     ~H"""
     <img src={@src} srcset={"#{@src_2x} 2x"} alt={@alt} {@rest} />
     """
@@ -173,10 +168,12 @@ defmodule PraliedutzelWeb.CoreComponents do
         <h3 class="panel__title">
           <%= @title %>
         </h3>
+
         <div class="panel__meta">
           <.shapes name="diamond" />
           <%= @company %> <span class="panel__meta-separator">&middot;</span> <%= @year %>
         </div>
+
         <p>
           <%= render_slot(@inner_block) %>
         </p>
@@ -215,16 +212,22 @@ defmodule PraliedutzelWeb.CoreComponents do
         <.dynamic_tag name="h3" class="card__title">
           <%= render_slot(@title) %>
         </.dynamic_tag>
+
         <p class="card__description">
           <%= render_slot(@description) %>
         </p>
+
         <ul class="card__tags tag-list">
           <.tag :for={tag <- @tags}><%= tag %></.tag>
         </ul>
       </div>
+
       <div class="card__media" role="presentation">
-        <.image src={~p"/images/case-studies/#{@slug}/hero.png"} class="card__media-image" />
-        <.dots size="sm" />
+        <.image
+          src={~p"/images/case-studies/#{@slug}/hero.png"}
+          src_2x={~p"/images/case-studies/#{@slug}/hero@2x.png"}
+          class="card__media-image"
+        /> <.dots size="sm" />
       </div>
     </.link>
     """
@@ -252,6 +255,10 @@ defmodule PraliedutzelWeb.CoreComponents do
     default: nil,
     doc: "An optional image to display next to the content inside the hero banner"
 
+  attr :image_2x, :string,
+    default: nil,
+    doc: "The 2x version of the optional image to display"
+
   slot :title,
     required: true,
     doc: "The text to render inside the `h1` tag describing what the page is for"
@@ -264,19 +271,27 @@ defmodule PraliedutzelWeb.CoreComponents do
     <div class="hero hero--homepage">
       <div class="hero__content">
         <h1><%= render_slot(@title) %></h1>
+
         <p :if={@description != []}>
           <%= render_slot(@description) %>
         </p>
         <%= render_slot(@action) %>
       </div>
+
       <div class="hero__media">
         <.dots size="md" />
-        <.image src={~p"/images/hero-shapes.png"} class="hero__shapes" role="presentation" />
-        <.image src={@image} class="hero__image" />
+        <.image
+          src={~p"/images/hero-shapes.png"}
+          src_2x={~p"/images/hero-shapes@2x.png"}
+          class="hero__shapes"
+          role="presentation"
+        /> <.image src={@image} src_2x={@image_2x} class="hero__image" />
       </div>
+
       <div>
         <.image
           src={~p"/images/hero-shapes-corner.png"}
+          src_2x={~p"/images/hero-shapes-corner@2x.png"}
           class="hero__shapes hero__shapes--corner"
           role="presentation"
         />
@@ -290,14 +305,15 @@ defmodule PraliedutzelWeb.CoreComponents do
     <div class="hero">
       <div class="hero__content">
         <h1><%= render_slot(@title) %></h1>
+
         <p :if={@description != []}>
           <%= render_slot(@description) %>
         </p>
         <%= render_slot(@action) %>
       </div>
+
       <div class="hero__media">
-        <.dots size="lg" />
-        <.image :if={@image} src={@image} />
+        <.dots size="lg" /> <.image :if={@image} src={@image} src_2x={@image_2x} />
       </div>
       <.dots :if={!@image} size="xl" />
     </div>
@@ -322,11 +338,13 @@ defmodule PraliedutzelWeb.CoreComponents do
               <span>Pralie <span class="last-name">Dutzel</span></span>
             </.link>
           </li>
+
           <li class="menu__item">
             <.link href={~p"/about"} class="menu__link">
               <%= gettext("About") %>
             </.link>
           </li>
+
           <li class="menu__item">
             <.link href={~p"/case-studies"} class="menu__link">
               <%= gettext("Case Studies") %>
@@ -351,12 +369,15 @@ defmodule PraliedutzelWeb.CoreComponents do
     <footer class="footer">
       <div class="footer__band">
         <p class="semibold-text"><%= gettext("Let's connect") %></p>
+
         <.link href={"mailto:#{contact_email()}"} class="link">
           <%= contact_email() %>
         </.link>
       </div>
+
       <div class="footer__band">
         <p>&copy; Pralie Dutzel</p>
+
         <ul class="social">
           <li class="social__item">
             <.link
@@ -365,10 +386,10 @@ defmodule PraliedutzelWeb.CoreComponents do
               target="_blank"
               rel="noopener"
             >
-              <.icon name="linkedin" />
-              <span class="visually-hidden">LinkedIn</span>
+              <.icon name="linkedin" /> <span class="visually-hidden">LinkedIn</span>
             </.link>
           </li>
+
           <li class="social__item">
             <.link
               href="https://dribbble.com/pralie"
@@ -376,10 +397,10 @@ defmodule PraliedutzelWeb.CoreComponents do
               target="_blank"
               rel="noopener"
             >
-              <.icon name="dribble" />
-              <span class="visually-hidden">Dribble</span>
+              <.icon name="dribble" /> <span class="visually-hidden">Dribble</span>
             </.link>
           </li>
+
           <li class="social__item">
             <.link
               href="https://www.behance.net/praliedutzel"
@@ -387,10 +408,10 @@ defmodule PraliedutzelWeb.CoreComponents do
               target="_blank"
               rel="noopener"
             >
-              <.icon name="behance" />
-              <span class="visually-hidden">Behance</span>
+              <.icon name="behance" /> <span class="visually-hidden">Behance</span>
             </.link>
           </li>
+
           <li class="social__item">
             <.link
               href="https://github.com/praliedutzel"
@@ -398,10 +419,10 @@ defmodule PraliedutzelWeb.CoreComponents do
               target="_blank"
               rel="noopener"
             >
-              <.icon name="github" />
-              <span class="visually-hidden">GitHub</span>
+              <.icon name="github" /> <span class="visually-hidden">GitHub</span>
             </.link>
           </li>
+
           <li class="social__item">
             <.link
               href="http://codepen.io/praliedutzel/"
@@ -409,8 +430,7 @@ defmodule PraliedutzelWeb.CoreComponents do
               target="_blank"
               rel="noopener"
             >
-              <.icon name="codepen" />
-              <span class="visually-hidden">CodePen</span>
+              <.icon name="codepen" /> <span class="visually-hidden">CodePen</span>
             </.link>
           </li>
         </ul>

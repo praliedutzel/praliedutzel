@@ -2,20 +2,21 @@
   <.hero>
     <:title><%= @hero_title %></:title>
   </.hero>
+  
   <div class="container container--size-md container--gutters">
     <section class="grid grid--halves grid--gap-2xl">
       <div class="prose">
         <.decorative_heading tag="h2">
           <%= gettext("Designer & Developer") %>
         </.decorative_heading>
-
+        
         <p>
           <%= raw(gettext("Hi there! I'm Pralie (pronounced <em>pray-lee</em>),
                         and I'm a user experience designer, front-end developer,
                         accessibility advocate, and design strategist currently
                         living in Austin, Texas.")) %>
         </p>
-
+        
         <p>
           <%= gettext("Although my educational background is in video game design,
                         I got my start building websites and doing graphic design
@@ -25,7 +26,7 @@
                         Joydrive, Subaru, Vrbo, Expedia Group, PXG, and Valley
                         of the Sun YMCA.") %>
         </p>
-
+        
         <p>
           <%= gettext("I love working in hybrid roles that let me leverage both
                         sides of my skill set. As a designer, I strive to create
@@ -40,7 +41,7 @@
                         include design systems, container queries, Phoenix
                         components, and, as always, finding that perfect font.") %>
         </p>
-
+        
         <p>
           <%= raw(
             gettext(
@@ -52,7 +53,7 @@
             )
           ) %>
         </p>
-
+        
         <p :if={portfolio_figma_link() && portfolio_github_link()}>
           <%= raw(
             gettext(
@@ -65,7 +66,7 @@
             )
           ) %>
         </p>
-
+        
         <.callout>
           <span>
             <%= raw(
@@ -77,38 +78,38 @@
           </span>
         </.callout>
       </div>
-
+      
       <div class="grid__sticky-cell">
         <div class="panel">
           <div class="panel__section">
             <h3 id="skills-list" class="panel__title">
               <%= gettext("I specialize in building...") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="skills-list">
               <.tag :for={skill <- skills()} size="sm">
                 <%= skill %>
               </.tag>
             </ul>
           </div>
-
+          
           <div class="panel__section">
             <h3 id="tools-list" class="panel__title">
               <%= gettext("My favorite tools are...") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="tools-list">
               <.tag :for={tool <- fav_tools()} size="sm">
                 <%= tool %>
               </.tag>
             </ul>
           </div>
-
+          
           <div class="panel__section">
             <h3 id="conversation-starters" class="panel__title">
               <%= gettext("Let's chat about...") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="conversation-starters">
               <.tag :for={topic <- conversation_starters()} size="sm">
                 <%= topic %>
@@ -119,19 +120,35 @@
       </div>
     </section>
   </div>
-
+  
   <div class="grid grid--fourths grid--gap-sm" role="presentation">
-    <.image src={~p"/images/about-teaser-1.png"} alt="" />
-    <.image src={~p"/images/about-teaser-2.png"} alt="" />
-    <.image src={~p"/images/about-teaser-3.png"} alt="" />
-    <.image src={~p"/images/about-teaser-4.png"} alt="" />
+    <.image
+      src={~p"/images/about-teaser-1.png"}
+      src_2x={~p"/images/about-teaser-1@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/about-teaser-2.png"}
+      src_2x={~p"/images/about-teaser-2@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/about-teaser-3.png"}
+      src_2x={~p"/images/about-teaser-3@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/about-teaser-4.png"}
+      src_2x={~p"/images/about-teaser-4@2x.png"}
+      alt=""
+    />
   </div>
-
+  
   <section class="container container--size-sm container--gutters center-text">
     <.decorative_heading tag="h2" style="bolder">
       <%= gettext("Experience, Talks, & Awards") %>
     </.decorative_heading>
-
+    
     <div class="grid grid--halves grid--gap-lg margin-top-xl">
       <.experience_panel
         :for={item <- @experience}
@@ -142,14 +159,12 @@
         <%= raw(item.description) %>
       </.experience_panel>
     </div>
-
+    
     <div class="link-group margin-top-xl">
       <.link href={resume_link()} class="link" target="_blank">
         <%= gettext("Download my resume") %>
       </.link>
-
-      <span role="presentation">//</span>
-
+       <span role="presentation">//</span>
       <.link href={~p"/case-studies"} class="link">
         <%= gettext("View my work") %>
       </.link>

@@ -1,33 +1,51 @@
 <article>
-  <.hero image={~p"/images/case-studies/#{@case_study.slug}/hero.png"}>
+  <.hero
+    image={~p"/images/case-studies/#{@case_study.slug}/hero.png"}
+    image_2x={~p"/images/case-studies/#{@case_study.slug}/hero@2x.png"}
+  >
     <:title><%= @case_study.title %></:title>
   </.hero>
-
+  
   <div class="hero-cutout">
     <div class="panel">
       <div class="panel__section">
         <h2 class="panel__title"><%= gettext("Goal") %></h2>
+        
         <p><%= @case_study.goal %></p>
       </div>
     </div>
   </div>
-
+  
   <div class="grid grid--fourths grid--gap-sm margin-top-2xl" role="presentation">
-    <.image src={~p"/images/case-studies/#{@case_study.slug}/teaser-1.png"} alt="" />
-    <.image src={~p"/images/case-studies/#{@case_study.slug}/teaser-2.png"} alt="" />
-    <.image src={~p"/images/case-studies/#{@case_study.slug}/teaser-3.png"} alt="" />
-    <.image src={~p"/images/case-studies/#{@case_study.slug}/teaser-4.png"} alt="" />
+    <.image
+      src={~p"/images/case-studies/#{@case_study.slug}/teaser-1.png"}
+      src_2x={~p"/images/case-studies/#{@case_study.slug}/teaser-1@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/case-studies/#{@case_study.slug}/teaser-2.png"}
+      src_2x={~p"/images/case-studies/#{@case_study.slug}/teaser-2@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/case-studies/#{@case_study.slug}/teaser-3.png"}
+      src_2x={~p"/images/case-studies/#{@case_study.slug}/teaser-3@2x.png"}
+      alt=""
+    />
+    <.image
+      src={~p"/images/case-studies/#{@case_study.slug}/teaser-4.png"}
+      src_2x={~p"/images/case-studies/#{@case_study.slug}/teaser-4@2x.png"}
+      alt=""
+    />
   </div>
-
+  
   <div class="container container--size-md container--gutters">
     <section class="grid grid--halves grid--gap-2xl">
       <div class="prose">
         <.decorative_heading tag="h2">
           <%= gettext("Project Overview") %>
         </.decorative_heading>
-
-        <.case_study_content slug={@case_study.slug} />
-
+         <.case_study_content slug={@case_study.slug} />
         <.link
           :if={@case_study.link}
           href={@case_study.link}
@@ -35,20 +53,22 @@
           target="_blank"
           rel="noopener"
         >
-          <%= gettext("View live site") %>
-          <.icon name="arrow" />
+          <%= gettext("View live site") %> <.icon name="arrow" />
         </.link>
-
+        
         <.callout :if={@case_study.callout}>
           <span :if={@case_study.callout == "nda"}>
             <%= gettext("Due to the nature of this work, it is only available upon request.") %>
           </span>
+          
           <span :if={@case_study.callout == "changes"}>
             <%= gettext("Please note that there may be changes from the original implementation.") %>
           </span>
+          
           <span :if={@case_study.callout == "unavailable"}>
             <%= gettext("This work is no longer available online as it was originally built.") %>
           </span>
+          
           <span>
             <%= gettext(
               "All logos, graphics, and content are copyright to the respective client."
@@ -56,37 +76,38 @@
           </span>
         </.callout>
       </div>
+      
       <div class="grid__sticky-cell">
         <div class="panel">
           <div class="panel__section">
             <h3 id="contributions-list" class="panel__title">
               <%= gettext("My Contributions") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="contributions-list">
               <.tag :for={contribution <- @case_study.contributions} size="sm">
                 <%= contribution %>
               </.tag>
             </ul>
           </div>
-
+          
           <div class="panel__section">
             <h3 id="tools-list" class="panel__title">
               <%= gettext("Tools Used") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="tools-list">
               <.tag :for={tool <- @case_study.tools} size="sm">
                 <%= tool %>
               </.tag>
             </ul>
           </div>
-
+          
           <div class="panel__section">
             <h3 id="features-list" class="panel__title">
               <%= gettext("Notable Features") %>
             </h3>
-
+            
             <ul class="tag-list" aria-labelledby="features-list">
               <.tag :for={feature <- @case_study.features} size="sm">
                 <%= feature %>

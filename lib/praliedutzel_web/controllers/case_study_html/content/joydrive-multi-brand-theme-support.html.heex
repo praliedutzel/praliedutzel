@@ -6,25 +6,26 @@
 
 <ul>
   <li>Devising a strategy of layered themes that allowed varying amounts of flexibility</li>
-
+  
   <li>
     Creating design tokens for each theme and setting up the Tokens Studio for Figma plugin to manage and apply them
   </li>
-
+  
   <li>
     Collaborating with other designers to implement design tokens and theming through CSS variables and Sass
   </li>
-
+  
   <li>
     Writing a color contrast checker in Elixir to ensure text over user-entered background colors meets minimum color contrast guidelines
   </li>
-
+  
   <li>Auditing designs and the Sass files to clean up nonstandard token usage</li>
 </ul>
 
 <figure>
   <.image
     src={~p"/images/case-studies/#{@slug}/theme-comparison.png"}
+    src_2x={~p"/images/case-studies/#{@slug}/theme-comparison@2x.png"}
     alt="Two mobile devices shown side-by-side to compare the differences between different themes. The device on the left shows the marketplace for Joydrive, which uses teal as its brand color. The device on the right shows the marketplace for a Subaru dealership's online store, which uses Subaru's blue brand color and features a banner with the dealership's name."
   />
   <figcaption>Comparison of theme differences for two different brands</figcaption>
@@ -45,12 +46,12 @@
     The <strong>global theme</strong>
     would contain all of Joydrive's design tokens and variables that all other themes would build off of.
   </li>
-
+  
   <li>
     <strong>Base themes</strong>
     would act as the base for additional marketplaces built on the Joydrive platform, and have the option to override most design tokens from the global theme depending on the brand's needs.
   </li>
-
+  
   <li>
     <strong>Layered themes</strong>
     were based on either the global theme or the base theme, depending on the marketplace, and were largely used for digital retailing. These themes had much more limited overrides to maintain cohesion with the marketplace, while still allowing for some brand customization.
@@ -61,17 +62,17 @@
 
 <ul>
   <li><strong>Joydrive</strong> is the global theme.</li>
-
+  
   <li>
     Digital retailing tools for <strong>Subaru</strong>
     and <strong>Toyota</strong>
     would be layered themes with their own logos and colors, while using Joydrive's base styles.
   </li>
-
+  
   <li>
     <strong>Polaris Xchange</strong> is a base theme. It overrides many of Joydrive's styles.
   </li>
-
+  
   <li>
     Pre-sale for <strong>Indian Motorcycle</strong>
     would be a layered theme with their own logo and colors, while using Polaris Xchange's base styles.
@@ -99,6 +100,7 @@
 <figure>
   <.image
     src={~p"/images/case-studies/#{@slug}/figma-tokens-example.png"}
+    src_2x={~p"/images/case-studies/#{@slug}/figma-tokens-example@2x.png"}
     alt="Two instances of the Tokens Studio for Figma plugin with different color tokens between them. The instance on the left has the Joydrive theme selected and has tokens for Joydrive's colors, while the instance on the right has the Polaris Xchange theme selected and has tokens for Polaris Xchange's colors."
   />
   <figcaption>Example of different themes in the Tokens Studio for Figma plugin</figcaption>
@@ -116,6 +118,7 @@
 
 <.image
   src={~p"/images/case-studies/#{@slug}/css-variables-code-snippet-1.png"}
+  src_2x={~p"/images/case-studies/#{@slug}/css-variables-code-snippet-1@2x.png"}
   alt="CSS snippet of the :root selector with CSS variables defined for a brand color and its individual RGB and HSL values."
 />
 <p>
@@ -130,6 +133,7 @@
 
 <.image
   src={~p"/images/case-studies/#{@slug}/css-variables-code-snippet-2.png"}
+  src_2x={~p"/images/case-studies/#{@slug}/css-variables-code-snippet-2@2x.png"}
   alt="CSS snippet of the :root selector with CSS variables defined for a brand background font color and an action background font color."
 />
 <p>
