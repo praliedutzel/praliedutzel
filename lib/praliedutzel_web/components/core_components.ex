@@ -7,7 +7,7 @@ defmodule PraliedutzelWeb.CoreComponents do
 
   import PraliedutzelWeb.Gettext
   import PraliedutzelWeb.Icons
-  import PraliedutzelWeb.SharedLinks, only: [contact_email: 0]
+  import PraliedutzelWeb.SharedLinks
 
   @doc """
   Renders a skip link which can be used to skip past the navigation.
@@ -380,56 +380,31 @@ defmodule PraliedutzelWeb.CoreComponents do
 
         <ul class="social">
           <li class="social__item">
-            <.link
-              href="https://www.linkedin.com/in/praliedutzel"
-              class="social__link"
-              target="_blank"
-              rel="noopener"
-            >
+            <.link href={linkedin_link()} class="social__link" target="_blank" rel="noopener">
               <.icon name="linkedin" /> <span class="visually-hidden">LinkedIn</span>
             </.link>
           </li>
 
           <li class="social__item">
-            <.link
-              href="https://dribbble.com/pralie"
-              class="social__link"
-              target="_blank"
-              rel="noopener"
-            >
-              <.icon name="dribble" /> <span class="visually-hidden">Dribble</span>
+            <.link href={dribbble_link()} class="social__link" target="_blank" rel="noopener">
+              <.icon name="dribbble" /> <span class="visually-hidden">Dribbble</span>
             </.link>
           </li>
 
           <li class="social__item">
-            <.link
-              href="https://www.behance.net/praliedutzel"
-              class="social__link"
-              target="_blank"
-              rel="noopener"
-            >
+            <.link href={behance_link()} class="social__link" target="_blank" rel="noopener">
               <.icon name="behance" /> <span class="visually-hidden">Behance</span>
             </.link>
           </li>
 
           <li class="social__item">
-            <.link
-              href="https://github.com/praliedutzel"
-              class="social__link"
-              target="_blank"
-              rel="noopener"
-            >
+            <.link href={github_link()} class="social__link" target="_blank" rel="noopener">
               <.icon name="github" /> <span class="visually-hidden">GitHub</span>
             </.link>
           </li>
 
           <li class="social__item">
-            <.link
-              href="http://codepen.io/praliedutzel/"
-              class="social__link"
-              target="_blank"
-              rel="noopener"
-            >
+            <.link href={codepen_link()} class="social__link" target="_blank" rel="noopener">
               <.icon name="codepen" /> <span class="visually-hidden">CodePen</span>
             </.link>
           </li>

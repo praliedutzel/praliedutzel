@@ -74,7 +74,7 @@ defmodule PraliedutzelWeb.Icons do
     """
   end
 
-  def icon(%{:name => "dribble"} = assigns) do
+  def icon(%{:name => "dribbble"} = assigns) do
     ~H"""
     <svg
       class="icon"
